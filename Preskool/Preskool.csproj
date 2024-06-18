@@ -15,7 +15,7 @@
     <AssemblyName>Preskool</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
+    <Use64BitIISExpress>false</Use64BitIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -43,7 +43,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\BCA-6\ASP\Ajax\AJAX 2010\AJAX .NET4\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Razorpay, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Razorpay.3.0.2\lib\net45\Razorpay.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -348,6 +359,7 @@
     <Content Include="Admin\assets\img\category\blog-6.jpg" />
     <Content Include="Admin\assets\img\category\blog-detail.jpg" />
     <Content Include="Admin\assets\img\favicon.png" />
+    <Content Include="Admin\assets\img\favicon1.svg" />
     <Content Include="Admin\assets\img\github.html" />
     <Content Include="Admin\assets\img\icons\award-icon-01.svg" />
     <Content Include="Admin\assets\img\icons\award-icon-02.svg" />
@@ -398,6 +410,8 @@
     <Content Include="Admin\assets\img\login.png" />
     <Content Include="Admin\assets\img\logo-small.png" />
     <Content Include="Admin\assets\img\logo.png" />
+    <Content Include="Admin\assets\img\logo1.png" />
+    <Content Include="Admin\assets\img\logo11.png" />
     <Content Include="Admin\assets\img\profile-bg.jpg" />
     <Content Include="Admin\assets\img\profile-user.jpg" />
     <Content Include="Admin\assets\img\profiles\avatar-01.jpg" />
@@ -10351,8 +10365,27 @@
     <Content Include="Admin\DispPosition.aspx" />
     <Content Include="Admin\DeletePosition.aspx" />
     <Content Include="Admin\DispFaculty.aspx" />
+    <Content Include="Admin\Forget-Password.aspx" />
     <Content Include="Admin\GridFaculty.aspx" />
     <Content Include="Admin\Approve.aspx" />
+    <Content Include="Admin\LogOut.aspx" />
+    <Content Include="Admin\Delete_Fac.aspx" />
+    <Content Include="Admin\DispStudent.aspx" />
+    <Content Include="Admin\GridStudent.aspx" />
+    <Content Include="Admin\DeleteStud.aspx" />
+    <Content Include="Admin\DispEvent.aspx" />
+    <Content Include="Admin\GridEvent.aspx" />
+    <Content Include="Admin\DispApproveFac.aspx" />
+    <Content Include="Admin\DispReview.aspx" />
+    <Content Include="Admin\Delete_Review.aspx" />
+    <Content Include="Admin\DispStudentPlan.aspx" />
+    <Content Include="Admin\Admin-Profile.aspx" />
+    <Content Include="Admin\GridCourse.aspx" />
+    <Content Include="Admin\DispSubject.aspx" />
+    <Content Include="Admin\Delete-Subject.aspx" />
+    <Content Include="Admin\DeleteEvent.aspx" />
+    <Content Include="Admin\AddSubject.aspx" />
+    <Content Include="Admin\GridSubject.aspx" />
     <Content Include="App_Data\Database1.mdf" />
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
@@ -10516,10 +10549,13 @@
     <Content Include="Faculty\Fac\assets\img\login-bg.png" />
     <Content Include="Faculty\Fac\assets\img\login-img.png" />
     <Content Include="Faculty\Fac\assets\img\logo.svg" />
+    <Content Include="Faculty\Fac\assets\img\logo1.png" />
+    <Content Include="Faculty\Fac\assets\img\logo11.png" />
     <Content Include="Faculty\Fac\assets\img\net-icon-01.png" />
     <Content Include="Faculty\Fac\assets\img\net-icon-02.png" />
     <Content Include="Faculty\Fac\assets\img\net-icon-03.png" />
     <Content Include="Faculty\Fac\assets\img\net-icon-04.png" />
+    <Content Include="Faculty\Fac\assets\img\new-logo.png" />
     <Content Include="Faculty\Fac\assets\img\object.png" />
     <Content Include="Faculty\Fac\assets\img\pencil-icon.svg" />
     <Content Include="Faculty\Fac\assets\img\plan.png" />
@@ -10613,12 +10649,29 @@
     <Content Include="Faculty\Fac\assets\plugins\slick\slick.js" />
     <Content Include="Faculty\Fac\assets\plugins\theia-sticky-sidebar\ResizeSensor.js" />
     <Content Include="Faculty\Fac\assets\plugins\theia-sticky-sidebar\theia-sticky-sidebar.js" />
+    <Content Include="Faculty\Fac\Error.aspx" />
     <Content Include="Faculty\Fac\FHome.aspx" />
     <Content Include="Faculty\Fac\AddSubject.aspx" />
     <Content Include="Faculty\Fac\ShowSubject.aspx" />
     <Content Include="Faculty\Fac\DeleteSubject.aspx" />
     <Content Include="Faculty\Fac\AddFac-MoreDetail.aspx" />
     <Content Include="Faculty\Fac\DispFacultyInfo.aspx" />
+    <Content Include="Faculty\Fac\AddNewEvent.aspx" />
+    <Content Include="Faculty\Fac\AddSocialProfile.aspx" />
+    <Content Include="Faculty\Fac\DeleteProfile.aspx" />
+    <Content Include="Faculty\Fac\LogOut.aspx" />
+    <Content Include="Faculty\Fac\UpdateProfile.aspx" />
+    <Content Include="Faculty\Fac\Review-Detail.aspx" />
+    <Content Include="Faculty\Fac\AddSubjectOverview.aspx" />
+    <Content Include="Faculty\Fac\Inbox.aspx" />
+    <Content Include="Faculty\Fac\Messages.aspx" />
+    <Content Include="Faculty\Fac\ShowEvents.aspx" />
+    <Content Include="Faculty\Fac\DeleteEvent.aspx" />
+    <Content Include="Faculty\Fac\Update-MoreDetail.aspx" />
+    <Content Include="Faculty\Fac\AddMaterial.aspx" />
+    <Content Include="Faculty\Fac\UpdateSocialProfile.aspx" />
+    <Content Include="Faculty\Fac\ShowSubjectTopic.aspx" />
+    <Content Include="Faculty\Fac\DeleteSubjectTopic.aspx" />
     <Content Include="Faculty\Register1\assets\css\bootstrap-datetimepicker.min.css" />
     <Content Include="Faculty\Register1\assets\css\ckeditor.css" />
     <Content Include="Faculty\Register1\assets\css\feather.css" />
@@ -10900,6 +10953,7 @@
     <Content Include="Faculty\Register1\assets\img\category\blog-6.jpg" />
     <Content Include="Faculty\Register1\assets\img\category\blog-detail.jpg" />
     <Content Include="Faculty\Register1\assets\img\favicon.png" />
+    <Content Include="Faculty\Register1\assets\img\favicon1.svg" />
     <Content Include="Faculty\Register1\assets\img\github.html" />
     <Content Include="Faculty\Register1\assets\img\icons\award-icon-01.svg" />
     <Content Include="Faculty\Register1\assets\img\icons\award-icon-02.svg" />
@@ -10950,6 +11004,7 @@
     <Content Include="Faculty\Register1\assets\img\login.png" />
     <Content Include="Faculty\Register1\assets\img\logo-small.png" />
     <Content Include="Faculty\Register1\assets\img\logo.png" />
+    <Content Include="Faculty\Register1\assets\img\logo1.png" />
     <Content Include="Faculty\Register1\assets\img\profile-bg.jpg" />
     <Content Include="Faculty\Register1\assets\img\profile-user.jpg" />
     <Content Include="Faculty\Register1\assets\img\profiles\avatar-01.jpg" />
@@ -20882,6 +20937,7 @@
     <Content Include="Faculty\Register1\assets\plugins\twitter-bootstrap-wizard\jquery.bootstrap.wizard.min.js" />
     <Content Include="Faculty\Register1\assets\plugins\twitter-bootstrap-wizard\prettify.js" />
     <Content Include="Faculty\Register1\FHome.aspx" />
+    <Content Include="Faculty\Register1\Forget-Password.aspx" />
     <Content Include="Faculty\Register1\SignIn.aspx" />
     <Content Include="Faculty\Register1\SignUp.aspx" />
     <Content Include="Faculty\Register1\SignUp1.aspx" />
@@ -21044,10 +21100,13 @@
     <Content Include="User\assets\img\login-bg.png" />
     <Content Include="User\assets\img\login-img.png" />
     <Content Include="User\assets\img\logo.svg" />
+    <Content Include="User\assets\img\logo1.png" />
+    <Content Include="User\assets\img\logo11.png" />
     <Content Include="User\assets\img\net-icon-01.png" />
     <Content Include="User\assets\img\net-icon-02.png" />
     <Content Include="User\assets\img\net-icon-03.png" />
     <Content Include="User\assets\img\net-icon-04.png" />
+    <Content Include="User\assets\img\new-logo.png" />
     <Content Include="User\assets\img\object.png" />
     <Content Include="User\assets\img\pencil-icon.svg" />
     <Content Include="User\assets\img\plan.png" />
@@ -21145,11 +21204,35 @@
     <Content Include="User\Resend.aspx" />
     <Content Include="User\SignIn.aspx" />
     <Content Include="User\SignUp1.aspx" />
-    <Content Include="User\Verify.aspx" />
+    <Content Include="User\verify.aspx" />
     <Content Include="User\SignUp.aspx" />
-    <Content Include="User\UHome.aspx" />
     <Content Include="User\Subject-Detail.aspx" />
     <Content Include="User\Faculty-Detail.aspx" />
+    <Content Include="User\ShowEvent.aspx" />
+    <Content Include="User\LogOut.aspx" />
+    <Content Include="User\Event-Detail.aspx" />
+    <Content Include="User\Cart.aspx" />
+    <Content Include="User\AddtoCart.aspx" />
+    <Content Include="User\AddReview.aspx" />
+    <Content Include="User\Course-wishlist.aspx" />
+    <Content Include="User\Disp-Wishlist.aspx" />
+    <Content Include="User\Delete-Cart.aspx" />
+    <Content Include="User\Messages.aspx" />
+    <Content Include="User\Inbox.aspx" />
+    <Content Include="User\Index.aspx" />
+    <Content Include="User\DisplayCourse.aspx" />
+    <Content Include="User\DisplayFac.aspx" />
+    <Content Include="User\DisplayEvent.aspx" />
+    <Content Include="User\Checkout.aspx" />
+    <Content Include="User\Pay.aspx" />
+    <Content Include="User\Return.aspx" />
+    <Content Include="User\view-invoice.aspx" />
+    <Content Include="User\Update-Profile.aspx" />
+    <Content Include="User\PurchaseHistory.aspx" />
+    <Content Include="User\UHome.aspx" />
+    <Content Include="User\Subjects.aspx" />
+    <Content Include="User\viewmaterial.aspx" />
+    <Content Include="User\WebForm27.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -21159,6 +21242,13 @@
     </Compile>
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Forget-Password.aspx.cs">
+      <DependentUpon>Forget-Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Forget-Password.aspx.designer.cs">
+      <DependentUpon>Forget-Password.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -21237,6 +21327,139 @@
     <Compile Include="Admin\Approve.aspx.designer.cs">
       <DependentUpon>Approve.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Delete_Fac.aspx.cs">
+      <DependentUpon>Delete_Fac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Delete_Fac.aspx.designer.cs">
+      <DependentUpon>Delete_Fac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DispStudent.aspx.cs">
+      <DependentUpon>DispStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DispStudent.aspx.designer.cs">
+      <DependentUpon>DispStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GridStudent.aspx.cs">
+      <DependentUpon>GridStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\GridStudent.aspx.designer.cs">
+      <DependentUpon>GridStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DeleteStud.aspx.cs">
+      <DependentUpon>DeleteStud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DeleteStud.aspx.designer.cs">
+      <DependentUpon>DeleteStud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DispEvent.aspx.cs">
+      <DependentUpon>DispEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DispEvent.aspx.designer.cs">
+      <DependentUpon>DispEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GridEvent.aspx.cs">
+      <DependentUpon>GridEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\GridEvent.aspx.designer.cs">
+      <DependentUpon>GridEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DispApproveFac.aspx.cs">
+      <DependentUpon>DispApproveFac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DispApproveFac.aspx.designer.cs">
+      <DependentUpon>DispApproveFac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DispReview.aspx.cs">
+      <DependentUpon>DispReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DispReview.aspx.designer.cs">
+      <DependentUpon>DispReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Delete_Review.aspx.cs">
+      <DependentUpon>Delete_Review.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Delete_Review.aspx.designer.cs">
+      <DependentUpon>Delete_Review.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DispStudentPlan.aspx.cs">
+      <DependentUpon>DispStudentPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DispStudentPlan.aspx.designer.cs">
+      <DependentUpon>DispStudentPlan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Admin-Profile.aspx.cs">
+      <DependentUpon>Admin-Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin-Profile.aspx.designer.cs">
+      <DependentUpon>Admin-Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GridCourse.aspx.cs">
+      <DependentUpon>GridCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\GridCourse.aspx.designer.cs">
+      <DependentUpon>GridCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DispSubject.aspx.cs">
+      <DependentUpon>DispSubject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DispSubject.aspx.designer.cs">
+      <DependentUpon>DispSubject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Delete-Subject.aspx.cs">
+      <DependentUpon>Delete-Subject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Delete-Subject.aspx.designer.cs">
+      <DependentUpon>Delete-Subject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DeleteEvent.aspx.cs">
+      <DependentUpon>DeleteEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\DeleteEvent.aspx.designer.cs">
+      <DependentUpon>DeleteEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddSubject.aspx.cs">
+      <DependentUpon>AddSubject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddSubject.aspx.designer.cs">
+      <DependentUpon>AddSubject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\GridSubject.aspx.cs">
+      <DependentUpon>GridSubject.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\GridSubject.aspx.designer.cs">
+      <DependentUpon>GridSubject.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Faculty\Fac\Fac2.Master.cs">
       <DependentUpon>Fac2.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -21293,12 +21516,131 @@
     <Compile Include="Faculty\Fac\DispFacultyInfo.aspx.designer.cs">
       <DependentUpon>DispFacultyInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Faculty\Fac\AddNewEvent.aspx.cs">
+      <DependentUpon>AddNewEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\AddNewEvent.aspx.designer.cs">
+      <DependentUpon>AddNewEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\AddSocialProfile.aspx.cs">
+      <DependentUpon>AddSocialProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\AddSocialProfile.aspx.designer.cs">
+      <DependentUpon>AddSocialProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\DeleteProfile.aspx.cs">
+      <DependentUpon>DeleteProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\DeleteProfile.aspx.designer.cs">
+      <DependentUpon>DeleteProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\UpdateProfile.aspx.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\UpdateProfile.aspx.designer.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\Review-Detail.aspx.cs">
+      <DependentUpon>Review-Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\Review-Detail.aspx.designer.cs">
+      <DependentUpon>Review-Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\AddSubjectOverview.aspx.cs">
+      <DependentUpon>AddSubjectOverview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\AddSubjectOverview.aspx.designer.cs">
+      <DependentUpon>AddSubjectOverview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\Inbox.aspx.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\Inbox.aspx.designer.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\Messages.aspx.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\Messages.aspx.designer.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\ShowEvents.aspx.cs">
+      <DependentUpon>ShowEvents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\ShowEvents.aspx.designer.cs">
+      <DependentUpon>ShowEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\DeleteEvent.aspx.cs">
+      <DependentUpon>DeleteEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\DeleteEvent.aspx.designer.cs">
+      <DependentUpon>DeleteEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\Update-MoreDetail.aspx.cs">
+      <DependentUpon>Update-MoreDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\Update-MoreDetail.aspx.designer.cs">
+      <DependentUpon>Update-MoreDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\AddMaterial.aspx.cs">
+      <DependentUpon>AddMaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\AddMaterial.aspx.designer.cs">
+      <DependentUpon>AddMaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\UpdateSocialProfile.aspx.cs">
+      <DependentUpon>UpdateSocialProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\UpdateSocialProfile.aspx.designer.cs">
+      <DependentUpon>UpdateSocialProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\ShowSubjectTopic.aspx.cs">
+      <DependentUpon>ShowSubjectTopic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\ShowSubjectTopic.aspx.designer.cs">
+      <DependentUpon>ShowSubjectTopic.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Fac\DeleteSubjectTopic.aspx.cs">
+      <DependentUpon>DeleteSubjectTopic.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Fac\DeleteSubjectTopic.aspx.designer.cs">
+      <DependentUpon>DeleteSubjectTopic.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Faculty\Register1\FHome.aspx.cs">
       <DependentUpon>FHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Faculty\Register1\FHome.aspx.designer.cs">
       <DependentUpon>FHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty\Register1\Forget-Password.aspx.cs">
+      <DependentUpon>Forget-Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Faculty\Register1\Forget-Password.aspx.designer.cs">
+      <DependentUpon>Forget-Password.aspx</DependentUpon>
     </Compile>
     <Compile Include="Faculty\Register1\SignIn.aspx.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>
@@ -21336,6 +21678,13 @@
     <Compile Include="User\ForgetPass.aspx.designer.cs">
       <DependentUpon>ForgetPass.aspx</DependentUpon>
     </Compile>
+    <Compile Include="User\Guest.Master.cs">
+      <DependentUpon>Guest.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Guest.Master.designer.cs">
+      <DependentUpon>Guest.Master</DependentUpon>
+    </Compile>
     <Compile Include="User\Resend.aspx.cs">
       <DependentUpon>Resend.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -21371,12 +21720,15 @@
     <Compile Include="User\Site2.Master.designer.cs">
       <DependentUpon>Site2.Master</DependentUpon>
     </Compile>
-    <Compile Include="User\Verify.aspx.cs">
-      <DependentUpon>Verify.aspx</DependentUpon>
+    <Compile Include="User\Subject-Detail.aspx.designer.cs">
+      <DependentUpon>Subject-Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\verify.aspx.cs">
+      <DependentUpon>verify.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="User\Verify.aspx.designer.cs">
-      <DependentUpon>Verify.aspx</DependentUpon>
+    <Compile Include="User\verify.aspx.designer.cs">
+      <DependentUpon>verify.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
@@ -21385,19 +21737,9 @@
     <Compile Include="User\SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="User\UHome.aspx.cs">
-      <DependentUpon>UHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\UHome.aspx.designer.cs">
-      <DependentUpon>UHome.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User\Subject-Detail.aspx.cs">
       <DependentUpon>Subject-Detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="User\Subject-Detail.aspx.designer.cs">
-      <DependentUpon>Subject-Detail.aspx</DependentUpon>
     </Compile>
     <Compile Include="User\Faculty-Detail.aspx.cs">
       <DependentUpon>Faculty-Detail.aspx</DependentUpon>
@@ -21405,6 +21747,181 @@
     </Compile>
     <Compile Include="User\Faculty-Detail.aspx.designer.cs">
       <DependentUpon>Faculty-Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\ShowEvent.aspx.cs">
+      <DependentUpon>ShowEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\ShowEvent.aspx.designer.cs">
+      <DependentUpon>ShowEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\LogOut.aspx.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\LogOut.aspx.designer.cs">
+      <DependentUpon>LogOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Event-Detail.aspx.cs">
+      <DependentUpon>Event-Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Event-Detail.aspx.designer.cs">
+      <DependentUpon>Event-Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\AddtoCart.aspx.cs">
+      <DependentUpon>AddtoCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\AddtoCart.aspx.designer.cs">
+      <DependentUpon>AddtoCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\AddReview.aspx.cs">
+      <DependentUpon>AddReview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\AddReview.aspx.designer.cs">
+      <DependentUpon>AddReview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Course-wishlist.aspx.cs">
+      <DependentUpon>Course-wishlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Course-wishlist.aspx.designer.cs">
+      <DependentUpon>Course-wishlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Disp-Wishlist.aspx.cs">
+      <DependentUpon>Disp-Wishlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Disp-Wishlist.aspx.designer.cs">
+      <DependentUpon>Disp-Wishlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Delete-Cart.aspx.cs">
+      <DependentUpon>Delete-Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Delete-Cart.aspx.designer.cs">
+      <DependentUpon>Delete-Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Messages.aspx.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Messages.aspx.designer.cs">
+      <DependentUpon>Messages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Inbox.aspx.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Inbox.aspx.designer.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\DisplayCourse.aspx.cs">
+      <DependentUpon>DisplayCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\DisplayCourse.aspx.designer.cs">
+      <DependentUpon>DisplayCourse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\DisplayFac.aspx.cs">
+      <DependentUpon>DisplayFac.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\DisplayFac.aspx.designer.cs">
+      <DependentUpon>DisplayFac.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\DisplayEvent.aspx.cs">
+      <DependentUpon>DisplayEvent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\DisplayEvent.aspx.designer.cs">
+      <DependentUpon>DisplayEvent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Checkout.aspx.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Checkout.aspx.designer.cs">
+      <DependentUpon>Checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Pay.aspx.cs">
+      <DependentUpon>Pay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Pay.aspx.designer.cs">
+      <DependentUpon>Pay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Return.aspx.cs">
+      <DependentUpon>Return.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Return.aspx.designer.cs">
+      <DependentUpon>Return.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\view-invoice.aspx.cs">
+      <DependentUpon>view-invoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\view-invoice.aspx.designer.cs">
+      <DependentUpon>view-invoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Update-Profile.aspx.cs">
+      <DependentUpon>Update-Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Update-Profile.aspx.designer.cs">
+      <DependentUpon>Update-Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\PurchaseHistory.aspx.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\PurchaseHistory.aspx.designer.cs">
+      <DependentUpon>PurchaseHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\UHome.aspx.cs">
+      <DependentUpon>UHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\UHome.aspx.designer.cs">
+      <DependentUpon>UHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Subjects.aspx.cs">
+      <DependentUpon>Subjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Subjects.aspx.designer.cs">
+      <DependentUpon>Subjects.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\viewmaterial.aspx.cs">
+      <DependentUpon>viewmaterial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\viewmaterial.aspx.designer.cs">
+      <DependentUpon>viewmaterial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\WebForm27.aspx.cs">
+      <DependentUpon>WebForm27.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\WebForm27.aspx.designer.cs">
+      <DependentUpon>WebForm27.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -21481,6 +21998,8 @@
     <Content Include="User\assets\plugins\fontawesome\webfonts\fa-v4compatibility.ttf" />
     <Content Include="User\Site1.Master" />
     <Content Include="User\Site2.Master" />
+    <Content Include="User\Guest.Master" />
+    <Content Include="User\3066_GPU_Shivam1.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -21489,6 +22008,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin\Admin Image\" />
     <Folder Include="Admin\assets\img\assets\css\assets\css\assets\css\" />
     <Folder Include="Admin\assets\img\assets\css\assets\css\assets\img\" />
     <Folder Include="Admin\assets\img\assets\css\assets\css\assets\js\" />
@@ -26532,6 +27052,8 @@
     <Folder Include="Admin\assets\plugins\simpleline\fonts\template\template\assets\plugins\fontawesome\css\" />
     <Folder Include="Admin\assets\plugins\simpleline\fonts\template\template\template-rtl\" />
     <Folder Include="Admin\assets\plugins\simpleline\fonts\template\template\template\" />
+    <Folder Include="Admin\Course Image\" />
+    <Folder Include="Faculty\Event Image\" />
     <Folder Include="Faculty\Faculty Image\" />
     <Folder Include="Faculty\Register1\assets\img\assets\css\assets\css\assets\css\" />
     <Folder Include="Faculty\Register1\assets\img\assets\css\assets\css\assets\img\" />
@@ -31577,6 +32099,7 @@
     <Folder Include="Faculty\Register1\assets\plugins\simpleline\fonts\template\template\template-rtl\" />
     <Folder Include="Faculty\Register1\assets\plugins\simpleline\fonts\template\template\template\" />
     <Folder Include="Faculty\Subject Image\" />
+    <Folder Include="Faculty\Subject Material\" />
     <Folder Include="User\User image\" />
   </ItemGroup>
   <PropertyGroup>

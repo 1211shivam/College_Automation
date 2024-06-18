@@ -73,18 +73,18 @@
 </div>
 <h1>Sign up</h1>
 <form runat="server">
-<div class="form-group">
+<%--<div class="form-group">
 <label class="form-control-label">Your Course</label>
 <%--<input type="text" class="form-control" placeholder="Enter your Full Name">--%>
-    <asp:DropDownList ID="ddl_UCourse" runat="server" class="form-control" DataSourceID="SqlDataSource1" DataTextField="cname" DataValueField="course_id"></asp:DropDownList>
-    <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT [course_id], [cname] FROM [course_mstr]"></asp:SqlDataSource>
-</div>
-<div class="form-group">
+    <%--<asp:DropDownList ID="ddl_UCourse" runat="server" class="form-control" DataSourceID="SqlDataSource1" DataTextField="cname" DataValueField="course_id"></asp:DropDownList>
+    <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT [course_id], [cname] FROM [course_mstr]"></asp:SqlDataSource>-
+</div>--%>
+<%--<div class="form-group">
 <label class="form-control-label">Your Semester</label>
 <%--<input type="email" class="form-control" placeholder="Enter your email address">--%>
-    <asp:DropDownList ID="ddl_USemester" runat="server" class="form-control" DataSourceID="SqlDataSource2" DataTextField="sem" DataValueField="sub_id"></asp:DropDownList>
-    <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT [sub_id], [sem] FROM [subject_mstr]"></asp:SqlDataSource>
-</div>
+    <%--<asp:DropDownList ID="ddl_USemester" runat="server" class="form-control" DataSourceID="SqlDataSource2" DataTextField="sem" DataValueField="sub_id"></asp:DropDownList>
+    <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT  [sem] FROM [subject_mstr]"></asp:SqlDataSource>
+</div>--%>
 <div class="form-group">
 <label class="form-control-label">Select Your Image</label>
 <%--<input type="email" class="form-control" placeholder="Enter your email address">--%>

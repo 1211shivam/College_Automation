@@ -8,9 +8,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-<title>Preskool - Register</title>
+<title>Dream College - Register</title>
 
-<link rel="shortcut icon" href="assets/img/favicon.png">
+<link rel="shortcut icon" href="assets/img/favicon1.svg">
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&amp;display=swap" rel="stylesheet">
 
@@ -42,17 +42,24 @@
 <label>Select Your Course <span class="login-danger">*</span></label>
 <%--<input class="form-control" type="text">--%>
 
-    <asp:DropDownList ID="ddl_course" runat="server" class="form-control" DataSourceID="SqlDataSource1" DataTextField="cname" DataValueField="course_id"></asp:DropDownList>
+    <asp:DropDownList ID="ddl_course" runat="server" class="form-control" DataSourceID="SqlDataSource1" DataTextField="cname" DataValueField="course_id" AutoPostBack="True"></asp:DropDownList>
     <%--<span class="profile-views"><i class="fas fa-user-circle"></i></span>--%>
     <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT * FROM [course_mstr]"></asp:SqlDataSource>
 </div>
-<div class="form-group">
+
+    <div class="form-group">
 <label>Select Your Subject <span class="login-danger">*</span></label>
 <%--<input class="form-control" type="text">--%>
-    <asp:DropDownList ID="ddl_subject" runat="server" class="form-control" DataSourceID="SqlDataSource2" DataTextField="sname" DataValueField="subid"></asp:DropDownList>
-    <%--<span class="profile-views"><i class="fas fa-envelope"></i></span>--%>
-    <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT * FROM [subject_mstr]"></asp:SqlDataSource>
-</div>
+        <asp:DropDownList ID="ddl_sname" runat="server" class="form-control" DataSourceID="SqlDataSource2" DataTextField="sname" DataValueField="subid" AutoPostBack="True"></asp:DropDownList>
+        <%--<span class="profile-views"><i class="fas fa-user-circle"></i></span>--%>
+
+        <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT [subid], [sname] FROM [subject_mstr] WHERE ([courseid] = @courseid)">
+             <SelectParameters>
+                        <asp:ControlParameter ControlID="ddl_course" PropertyName="SelectedValue" Name="courseid" Type="Int32"></asp:ControlParameter>
+                    </SelectParameters>
+        </asp:SqlDataSource>
+    </div>
+
 <div class="form-group">
 <label>Select Your Position <span class="login-danger">*</span></label>
 <%--<input class="form-control pass-input" type="text">--%>
@@ -61,13 +68,14 @@
     <asp:SqlDataSource runat="server" ID="SqlDataSource3" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT * FROM [position_mstr]"></asp:SqlDataSource>
 </div>
 <div class="form-group">
-<label>Add Image <span class="login-danger">*</span></label>
+<label>Select Your Image <span class="login-danger">*</span></label>
 <%--<input class="form-control pass-confirm" type="text">--%>
-    <asp:FileUpload ID="FileUpload1" runat="server" class="form-control"/>
+    <asp:FileUpload ID="FileUpload1" runat="server" class="form-control" required="Please Select"/>
 <%--<span class="profile-views feather-eye reg-toggle-password"></span>--%>
 </div>
     <asp:Label ID="lbl_disp" runat="server" Text=""></asp:Label>
-<div class=" dont-have">Already Registered? <a href="SignIn.aspx">Login</a></div>
+<div class=" dont-have">Already Registered? <a href="SignIn.aspx">Login</a> <br>
+<i class="fa fa-arrow-left" aria-hidden="true"></i><a href="SignUp.aspx">Back</a></div>
 <div class="form-group mb-0">
 <%--<button class="btn btn-primary btn-block" type="submit">Register</button>--%>
     <asp:Button ID="btn_submit" runat="server" Text="Submit" class="btn btn-primary btn-block" OnClick="btn_submit_Click"/>
@@ -75,17 +83,6 @@
 </div>
 </form>
 
-<div class="login-or">
-<span class="or-line"></span>
-<span class="span-or">or</span>
-</div>
-
-<div class="social-login">
-<a href="#"><i class="fab fa-google-plus-g"></i></a>
-<a href="#"><i class="fab fa-facebook-f"></i></a>
-<a href="#"><i class="fab fa-twitter"></i></a>
-<a href="#"><i class="fab fa-linkedin-in"></i></a>
-</div>
 
 </div>
 </div>

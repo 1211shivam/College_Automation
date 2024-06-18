@@ -33,12 +33,10 @@ namespace Preskool.Admin
             if (dr.HasRows)
             {
                 dr.Read();
-                //int verify = Convert.ToInt32(dr["verify"].ToString());
-
-                //if (verify == 1)
-                //{
-                Response.Redirect("AHome.aspx");
-                //}
+                Session["aid"] = dr["aid"].ToString();
+                Session["aname"] = dr["aname"].ToString();
+                Session["aimg"] = dr["aimg"].ToString();
+                Response.Redirect("AHome.aspx");            
             }
             else
             {

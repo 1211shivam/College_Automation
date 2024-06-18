@@ -14,6 +14,7 @@ namespace Preskool.Faculty.Fac
         SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["Constr"].ConnectionString);
         SqlCommand cmd = new SqlCommand();
         string qry;
+        SqlDataReader dr;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,16 +22,35 @@ namespace Preskool.Faculty.Fac
 
         protected void btn_submit_Click(object sender, EventArgs e)
         {
+
             cn.Open();
-            qry = "CrudFacultyInfo";
+            qry = "select * from faculty_info where FAbout='" + txt_about.Text + "' and fac_id='" + ddl_fname.SelectedValue + "' and FEducat= '" +txt_education.Text +"' and FExp= '"+ txt_experience.Text+"' ";
             cmd = new SqlCommand(qry, cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@action", "Insert");
-            cmd.Parameters.AddWithValue("@FAbout", txt_about.Text);
-            cmd.Parameters.AddWithValue("@FEducat", txt_education.Text);
-            cmd.Parameters.AddWithValue("@FExp", txt_experience.Text);
-            cmd.ExecuteNonQuery();
+            dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                dr.Read();
+                Label1.Text = "The Details You Entered is Already exist!";
+            }
+
+            else
+            {
+                cn.Open();
+                qry = "CrudFacultyInfo";
+                cmd = new SqlCommand(qry, cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@action", "Insert");
+                cmd.Parameters.AddWithValue("@Fac_id", ddl_fname.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@FAbout", txt_about.Text);
+                cmd.Parameters.AddWithValue("@FEducat", txt_education.Text);
+                cmd.Parameters.AddWithValue("@FExp", txt_experience.Text);
+                cmd.ExecuteNonQuery();
+                Label1.Text = "Data Inserted Successfully..!";
+                cn.Close();
+            }
             cn.Close();
+
+           
         }
     }
 }

@@ -60,8 +60,8 @@ namespace Preskool.User1
             cmd.Parameters.AddWithValue("@umob", umob);
             cmd.Parameters.AddWithValue("@uemail", uemail);
             cmd.Parameters.AddWithValue("@upass", upass);
-            cmd.Parameters.AddWithValue("@ucourse", ddl_UCourse.SelectedValue);
-            cmd.Parameters.AddWithValue("@usem", ddl_USemester.SelectedValue);
+            //cmd.Parameters.AddWithValue("@ucourse", ddl_UCourse.SelectedValue);
+            //cmd.Parameters.AddWithValue("@usem", ddl_USemester.SelectedValue);
             cmd.Parameters.AddWithValue("@uimg", FileUpload1.FileName);
             cmd.Parameters.AddWithValue("@otp", randomcode);
             cmd.Parameters.AddWithValue("@verify", 0);

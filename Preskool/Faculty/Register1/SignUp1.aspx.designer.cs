@@ -33,13 +33,13 @@ namespace Preskool.Faculty
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// ddl_subject control.
+        /// ddl_sname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_subject;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_sname;
 
         /// <summary>
         /// SqlDataSource2 control.

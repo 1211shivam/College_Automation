@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Verify.aspx.cs" Inherits="Preskool.User.Verify" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="verify.aspx.cs" Inherits="Preskool.User.Verify" %>
 
 
 <!DOCTYPE html>
@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.svg">
     <title>Responsive OTP Verification Form Using Bootstrap 5</title>
 	<!-- Bootstrap 5 CDN Link -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,12 +36,13 @@ text-align:center
 
 					<div class="fw-normal text-muted mb-4 ">
 						Enter the verification code we sent to
+						Your Email Address
 					</div>  
 					<div class="otp_input text-start mb-2">
                         <p>Type your 5 digit security code</p>
 						<div class="d-flex align-items-center justify-content-between mt-2">
                             <%--<input type="text" class="form-control" placeholder="">--%>
-							<asp:TextBox ID="txt_otp" runat="server" class="form-control" placeholder="Enter Otp"></asp:TextBox>
+							<asp:TextBox ID="txt_otp" runat="server" class="form-control" placeholder="Enter Otp" required="This Field Is Compulsory"  MaxLength="5"></asp:TextBox>
                         </div> 
 					</div>  
 

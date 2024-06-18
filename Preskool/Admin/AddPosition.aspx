@@ -15,12 +15,13 @@
                             <label class="col-lg-3 col-form-label">Position Name</label>
                             <div class="col-lg-9">
                                 <%--<input type="text" class="form-control" placeholder="Enter Course Name">--%>
-                                <asp:TextBox ID="txt_pname" runat="server" class="form-control" placeholder="Enter Course Name"></asp:TextBox>
+                                <asp:TextBox ID="txt_pname" runat="server" class="form-control" placeholder="Enter Course Name" required="Please Enter Field"></asp:TextBox>
                             </div>
                         </div>
                         
                         <div class="text-end">
                             <%--<button type="submit" class="btn btn-primary">Submit</button>--%>
+                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                             <asp:Button ID="btn_submit" runat="server" Text="Submit" class="btn btn-primary" OnClick="btn_submit_Click"  />
                             <asp:Button ID="btn_cancel" runat="server" Text="Cancel" class="btn btn-danger" OnClick="btn_cancel_Click" /> 
                             <asp:Button ID="btn_delete" runat="server" Text="Delete" class="btn btn-danger" Visible="false"/>

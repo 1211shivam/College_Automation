@@ -38,8 +38,10 @@ namespace Preskool.User1
                 verify = Convert.ToInt32(dr["verify"].ToString());
                 if (verify == 1)
                 {
+                    Session["uid"] = dr["uid"].ToString();
                     Session["uname"] = dr["uname"].ToString();
                     Session["uimg"] = dr["uimg"].ToString();
+                    Session["uemail"] = dr["uemail"].ToString();
                     Response.Redirect("../User/UHome.aspx");
                 }
                 else

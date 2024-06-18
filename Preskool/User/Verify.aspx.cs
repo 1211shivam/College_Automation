@@ -19,7 +19,7 @@ namespace Preskool.User
         
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btn_submit_Click(object sender, EventArgs e)
@@ -53,7 +53,8 @@ namespace Preskool.User
                 Label1.Text = "Please enter correct  OTP";
             }
             cn.Close();
-
+            
         }
+        
     }
 }

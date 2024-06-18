@@ -17,6 +17,7 @@ namespace Preskool.Faculty
         string qry;
         string fac_name, fac_mob, fac_email, fac_pass;
         string fname;
+        SqlDataReader dr;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -24,53 +25,78 @@ namespace Preskool.Faculty
 
         protected void btn_submit_Click(object sender, EventArgs e)
         {
+
             fac_name = Session["fac_name"].ToString();
             fac_mob = Session["fac_mob"].ToString();
             fac_email = Session["fac_email"].ToString();
             fac_pass = Session["fac_pass"].ToString();
-            cn.Open();
-            qry = "CrudFaculty";
-            cmd = new SqlCommand(qry, cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@action", "Insert");
-            cmd.Parameters.AddWithValue("@fac_name", fac_name);
-            cmd.Parameters.AddWithValue("@fac_mob", fac_mob);
-            cmd.Parameters.AddWithValue("@fac_email", fac_email);
-            cmd.Parameters.AddWithValue("@fac_pass",fac_pass);
-            cmd.Parameters.AddWithValue("@fac_course_id", ddl_course.SelectedValue);
-            cmd.Parameters.AddWithValue("@fac_sub_id", ddl_subject.SelectedValue);
-            cmd.Parameters.AddWithValue("@fac_posi_id", ddl_position.SelectedValue);
-            cmd.Parameters.AddWithValue("@fac_img", FileUpload1.FileName);
-            cmd.Parameters.AddWithValue("@verify", 0);
-            cmd.ExecuteNonQuery();
-            cn.Close();
 
-            if (FileUpload1.HasFile)
+            cn.Open();
+            qry = "select * from faculty_mstr where fac_email='" + fac_email + "'";
+            cmd = new SqlCommand(qry, cn);
+            dr = cmd.ExecuteReader();
+            if (dr.HasRows)
             {
-                if (FileUpload1.PostedFile.ContentType == "image/jpeg")
+                dr.Read();
+                Label1.Text = "This Faculty is Alredy exists With this Email ID ";
+            }
+
+            else
+            {
+                
+                cn.Close();
+                cn.Open();
+                qry = "CrudFaculty";
+                cmd = new SqlCommand(qry, cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@action", "Insert");
+                cmd.Parameters.AddWithValue("@fac_name", fac_name);
+                cmd.Parameters.AddWithValue("@fac_mob", fac_mob);
+                cmd.Parameters.AddWithValue("@fac_email", fac_email);
+                cmd.Parameters.AddWithValue("@fac_pass", fac_pass);
+                cmd.Parameters.AddWithValue("@fac_course_id", ddl_course.SelectedValue);
+                cmd.Parameters.AddWithValue("@fac_sub_id", ddl_sname.SelectedValue);
+                cmd.Parameters.AddWithValue("@fac_posi_id", ddl_position.SelectedValue);
+                cmd.Parameters.AddWithValue("@fac_img", FileUpload1.FileName);
+                cmd.Parameters.AddWithValue("@verify", 0);
+                cmd.Parameters.AddWithValue("@delete_status", 0);
+                cmd.ExecuteNonQuery();
+                cn.Close();
+
+                cn.Open() ;
+                qry = "update subject_mstr set sub_status = 0  where subid=" + ddl_sname.SelectedItem.Value;
+                cmd = new SqlCommand(qry, cn);
+                cmd.ExecuteNonQuery() ;
+                cn.Close() ;
+
+                if (FileUpload1.HasFile)
                 {
-                    if (FileUpload1.PostedFile.ContentLength < 50000000)
+                    if (FileUpload1.PostedFile.ContentType == "image/jpeg")
                     {
-                        fname = FileUpload1.FileName;
-                        FileUpload1.SaveAs(Server.MapPath("~/Faculty/Faculty image/" + fname));
-                        //Image1.ImageUrl = "~/Faculty/Faculty image/" + FileUpload1.FileName;
-                        lbl_disp.Text = "Your Data has been Stored...!";
+                        if (FileUpload1.PostedFile.ContentLength < 50000000)
+                        {
+                            fname = FileUpload1.FileName;
+                            FileUpload1.SaveAs(Server.MapPath("~/Faculty/Faculty image/" + fname));
+                            //Image1.ImageUrl = "~/Faculty/Faculty image/" + FileUpload1.FileName;
+                            lbl_disp.Text = "Your Data has been Stored...!";
+                        }
+                        else
+                        {
+                            lbl_disp.Text = "file is too large..!";
+                        }
                     }
                     else
                     {
-                        lbl_disp.Text = "file is too large..!";
+                        lbl_disp.Text = "please select only image file..!";
                     }
                 }
                 else
                 {
-                    lbl_disp.Text = "please select only image file..!";
+                    lbl_disp.Text = "please select file...!";
                 }
+                
             }
-            else
-            {
-                lbl_disp.Text = "please select file...!";
-            }
-
+            cn.Close();
         }
     }
 }

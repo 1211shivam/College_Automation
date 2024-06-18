@@ -51,6 +51,24 @@ namespace Preskool.User1
         protected global::System.Web.UI.WebControls.TextBox txt_umob;
 
         /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+
+        /// <summary>
+        /// lbl_disp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_disp;
+
+        /// <summary>
         /// btn_next control.
         /// </summary>
         /// <remarks>

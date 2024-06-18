@@ -69,13 +69,13 @@ namespace Preskool.Faculty.Fac
         protected global::System.Web.UI.WebControls.TextBox txt_sdesc;
 
         /// <summary>
-        /// txt_sem control.
+        /// ddl_sem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_sem;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_sem;
 
         /// <summary>
         /// FileUpload1 control.

@@ -20,7 +20,10 @@ namespace Preskool.Faculty.Fac
         {
             fac_name = Session["fac_name"].ToString();
             lblfac_name.Text = fac_name;
+            Label1.Text = fac_name;
             Image1.ImageUrl = "../../Faculty/Faculty Image/" + Session["fac_img"].ToString();
+            Image2.ImageUrl = "../../Faculty/Faculty Image/" + Session["fac_img"].ToString();
+            Image3.ImageUrl = "../../Faculty/Faculty Image/" + Session["fac_img"].ToString();
         }
     }
 }

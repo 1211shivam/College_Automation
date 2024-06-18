@@ -41,7 +41,7 @@ namespace Preskool.Faculty.Fac
                         dr.Read();
                         txt_sname.Text = dr["sname"].ToString();
                         txt_sdesc.Text = dr["sdesc"].ToString();
-                        txt_sem.Text = dr["sem"].ToString();
+                        ddl_sem.SelectedItem.Value = dr["sem"].ToString();
                         txt_pay.Text = dr["subpay"].ToString();
                         txt_SubUrl.Text = dr["SubUrl"].ToString();
                         
@@ -62,7 +62,7 @@ namespace Preskool.Faculty.Fac
             cmd.Parameters.AddWithValue("@courseid", ddl_cname.SelectedValue);
             cmd.Parameters.AddWithValue("@fac_id", ddl_fname.SelectedValue);
             cmd.Parameters.AddWithValue("@sdesc", txt_sdesc.Text);
-            cmd.Parameters.AddWithValue("@sem", txt_sem.Text);
+            cmd.Parameters.AddWithValue("@sem", ddl_sem.SelectedItem.Value);
             cmd.Parameters.AddWithValue("@simg", FileUpload1.FileName);
             cmd.Parameters.AddWithValue("@subpay", txt_pay.Text);
             cmd.Parameters.AddWithValue("@SubUrl", txt_SubUrl.Text);
@@ -110,7 +110,7 @@ namespace Preskool.Faculty.Fac
             cmd.Parameters.AddWithValue("@fac_id",ddl_fname.SelectedValue);
             cmd.Parameters.AddWithValue("@sname", txt_sname.Text);
             cmd.Parameters.AddWithValue("@sdesc", txt_sdesc.Text);
-            cmd.Parameters.AddWithValue("@sem", txt_sem.Text);
+            cmd.Parameters.AddWithValue("@sem", ddl_sem.SelectedItem.Value);
             cmd.Parameters.AddWithValue("@subpay", txt_pay.Text);
             cmd.Parameters.AddWithValue("@SubUrl", txt_SubUrl.Text);
             cmd.ExecuteNonQuery();

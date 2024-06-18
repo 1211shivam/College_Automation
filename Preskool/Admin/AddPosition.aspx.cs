@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace Preskool.Admin
 {
@@ -49,13 +50,30 @@ namespace Preskool.Admin
         protected void btn_submit_Click(object sender, EventArgs e)
         {
             cn.Open();
-            qry = "CrudPosition";
+            qry = "select * from position_mstr where pname='" + txt_pname.Text + "'";
             cmd = new SqlCommand(qry, cn);
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@action", "Insert");
-            cmd.Parameters.AddWithValue("@pname", txt_pname.Text);
-            cmd.ExecuteNonQuery();
+            dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                dr.Read();
+               Label1.Text = "This Position is Alredy exist!";
+            }
+
+            else
+            {
+                
+                cn.Open();
+                qry = "CrudPosition";
+                cmd = new SqlCommand(qry, cn);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@action", "Insert");
+                cmd.Parameters.AddWithValue("@pname", txt_pname.Text);
+                cmd.ExecuteNonQuery();
+                cn.Close();
+                Label1.Text = "Position Added..!";
+            }
             cn.Close();
+            
         }
 
         protected void btn_cancel_Click(object sender, EventArgs e)
@@ -89,6 +107,8 @@ namespace Preskool.Admin
             cmd.Parameters.AddWithValue("@pname", txt_pname.Text);
             cmd.ExecuteNonQuery();
             cn.Close();
+            Label1.Text = "Position Updated..!";
+            Response.Redirect("../Admin/DispPosition.aspx");
         }
     }
 }
